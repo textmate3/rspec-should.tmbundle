@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>response.should be_success
+	<string>${1:target}.should_not be_within(${2:tolerance}).of(${3:result})
 $0</string>
 	<key>name</key>
-	<string>should be_success</string>
+	<string>should_not be_within</string>
 	<key>scope</key>
 	<string>source.ruby.rspec attr.rspec.should</string>
 	<key>tabTrigger</key>
-	<string>shbs</string>
+	<string>shnbc</string>
 	<key>uuid</key>
-	<string>E0539885-5CF8-4F0C-AF51-A0D093176D7E</string>
+	<string>F0545AE0-38B0-44E9-A500-5275FCFDBAE6</string>
 </dict>
 </plist>

@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${1:target}.should have_at_least(${2:num}).${3:things}
+	<string>response.should have_http_status(:${1:success})
 $0</string>
 	<key>name</key>
-	<string>should have_at_least</string>
+	<string>should have_http_status</string>
 	<key>scope</key>
 	<string>source.ruby.rspec attr.rspec.should</string>
 	<key>tabTrigger</key>
-	<string>shhal</string>
+	<string>shbs</string>
 	<key>uuid</key>
-	<string>94DBD547-FE94-4600-A777-25C1519DC857</string>
+	<string>E0539885-5CF8-4F0C-AF51-A0D093176D7E</string>
 </dict>
 </plist>

@@ -99,4 +99,40 @@ RSpec.describe 'The snippets' do
 
     expect(unparsed.map { |snippet| snippet['file'] }).to eq([])
   end
+
+  it 'insert only names an RSpec example or example group defines, with the should syntax on' do
+    # Loading rspec-rails takes a Rails application,
+    # so its names were checked against the rspec-rails 8.0.4 source instead.
+    # be_redirect is a predicate matcher on the response's redirect? method.
+    rspec_rails = %w[be_redirect have_http_status redirect_to render_template response]
+
+    undefined = SnippetFiles.all.flat_map do |snippet|
+      expansion = SnippetExpansion.new(snippet['content'], filler: '')
+      calls = []
+      queue = [Prism.parse(expansion.to_s).value]
+      until queue.empty?
+        node = queue.shift
+        calls << node.name.to_s if node.is_a?(Prism::CallNode) && node.receiver.nil?
+        queue.concat(node.compact_child_nodes)
+      end
+
+      calls.reject do |name|
+        expansion.placeholder_words.include?(name) ||
+          rspec_rails.include?(name) ||
+          # Asking respond_to? would let any be_ or have_ name through,
+          # since RSpec turns those into predicate matchers at run time.
+          self.class.method_defined?(name) ||
+          self.class.private_method_defined?(name) ||
+          self.class.respond_to?(name) ||
+          # Modifiers, like and_return or once, chain onto a message expectation.
+          RSpec::Mocks::MessageExpectation.method_defined?(name)
+      end.map { |name| "#{snippet['file']}: #{name}" }
+    end
+
+    expect(undefined).to eq([])
+  end
+
+  it 'never give a negative raise_error an error class, which RSpec 3 rejects' do
+    expect(SnippetFiles.inserting(/should_not raise_error\(/)).to eq([])
+  end
 end
