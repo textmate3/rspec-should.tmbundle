@@ -81,6 +81,13 @@ RSpec.describe 'The snippets' do
     expect(incomplete).to eq([])
   end
 
+  it 'each have their own tab trigger' do
+    triggers = SnippetFiles.all.map { |snippet| snippet['tabTrigger'] }
+    shared = triggers.tally.select { |_, count| count > 1 }.keys
+
+    expect(shared).to eq([])
+  end
+
   it 'only work in spec files of projects that turn the should syntax on' do
     scopes = SnippetFiles.all.map { |snippet| snippet['scope'] }.uniq
 

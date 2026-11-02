@@ -10,7 +10,7 @@ $0</string>
 	<key>scope</key>
 	<string>source.ruby.rspec attr.rspec.should</string>
 	<key>tabTrigger</key>
-	<string>shnm</string>
+	<string>shnmo</string>
 	<key>uuid</key>
 	<string>C0DF3DE3-8A49-4094-BA6E-6FB0AB382D4D</string>
 </dict>
