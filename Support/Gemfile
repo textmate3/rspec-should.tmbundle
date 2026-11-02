@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# The bundle's own specs, over its snippets.
+gem "rspec", "~> 3.13"
