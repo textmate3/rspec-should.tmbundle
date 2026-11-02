@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${TM_SELECTED_TEXT}.${1|should,should_not|} ${2:eq(${4:value})}</string>
+	<key>name</key>
+	<string>actual.should eq(…)</string>
+	<key>scope</key>
+	<string>source.ruby.rspec attr.rspec.should</string>
+	<key>tabTrigger</key>
+	<string>.sh</string>
+	<key>uuid</key>
+	<string>09B975B7-10BC-4E48-B6C9-7FDE395572E8</string>
+</dict>
+</plist>
