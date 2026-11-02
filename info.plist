@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>description</key>
+	<string>Snippets for RSpec's should syntax, for projects that turn it on.</string>
+	<key>name</key>
+	<string>RSpec Should</string>
+	<key>require</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>RSpec</string>
+			<key>uuid</key>
+			<string>4CEA47CC-2C3A-45FB-80BE-3820828227C2</string>
+		</dict>
+	</array>
+	<key>uuid</key>
+	<string>BA3CE8EA-1376-4CDE-9271-E58C6716FABE</string>
+</dict>
+</plist>
