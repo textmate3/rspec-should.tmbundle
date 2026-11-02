@@ -1,0 +1,36 @@
+name: CI
+
+# The bundle's own specs, over its snippets, on the Ruby TextMate runs bundle commands on.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+# A new push makes the run in progress moot.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  specs:
+    # The spec reads the snippets with plutil, which only macOS has.
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # The Ruby the runtimes bundle pins, which TextMate runs bundle commands on.
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0.9'
+          working-directory: Support
+          bundler-cache: true
+
+      - name: Run the specs
+        working-directory: Support
+        env:
+          RUBYOPT: -W:deprecated
+        run: bundle exec rspec
