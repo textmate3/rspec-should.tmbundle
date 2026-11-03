@@ -33,4 +33,4 @@ Everywhere else, the RSpec bundle's `expect` snippets are all there is.
 
 ## License
 
-The snippets come from the RSpec bundle, and the license is the same as RSpec's, MIT. See [License.txt](License.txt).
+The snippets come from the RSpec bundle, and the license is the same as RSpec's, MIT. See [LICENSE.md](LICENSE.md).
