@@ -1,4 +1,4 @@
-(The MIT License)
+# The MIT License
 
 Copyright (c) 2005-2008 Florian Weber (for TDDMate) and The RSpec Development Team
 
